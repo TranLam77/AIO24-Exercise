@@ -8,9 +8,9 @@ Original file is located at
 """
 
 # define functions calculate costs
-def ins_cost(target):
+def ins_cost():
     return 1
-def del_cost(source):
+def del_cost():
     return 1
 def sub_cost(source, target):
     if source == target:
@@ -26,7 +26,7 @@ def min_cost(a):
 def levenshtein_distance(source, target):
     # Your Code Here
     # Step 1. build a matrix with rows = len(source) + 1, cols = len(target) + 1
-    distance_matrix = [[0 for x in range(len(target) + 1)] for x in range(len(source) + 1)]
+    distance_matrix = [[0 for _ in range(len(target) + 1)] for _ in range(len(source) + 1)]
     # Step 2.
     # initialize the first row
     for i in range(len(target) + 1):
@@ -37,8 +37,8 @@ def levenshtein_distance(source, target):
     # Step 3. calculate value for the other cells in distance_matrix
     for i in range(1, len(source) + 1):
         for j in range(1, len(target) + 1):
-            distance_matrix[i][j] = min(distance_matrix[i-1][j]  + del_cost(source[i-1]),
-                                       distance_matrix[i][j-1] + ins_cost(target[j-1]),
+            distance_matrix[i][j] = min(distance_matrix[i-1][j]  + del_cost(),
+                                       distance_matrix[i][j-1] + ins_cost(),
                                        distance_matrix[i-1][j-1] + sub_cost(source[i-1], target[j-1]))
 
     # Step 4
@@ -47,7 +47,7 @@ def levenshtein_distance(source, target):
 
     return distance
 
-assert levenshtein_distance ("hi", "hello") == 4.0
+assert levenshtein_distance ("hi", "hello") == 4
 print(levenshtein_distance ("hola", "hello"))
 
 #Đáp án là c) 3.0
