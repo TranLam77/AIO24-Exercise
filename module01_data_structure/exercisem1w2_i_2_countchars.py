@@ -8,6 +8,8 @@ Original file is located at
 """
 
 # define function count_chars (string)
+
+
 def count_chars(string):
     # đổi kiểu string --> list
     string_list = list(string)
@@ -22,7 +24,7 @@ def count_chars(string):
             dictionary_chars[char] += 1
 
     print(dictionary_chars)
-    return
+
 
 # test function count_chars (string)
 string = "jgdlgjdfglkdfjg kgjdgdfjg ldjgtu3"
